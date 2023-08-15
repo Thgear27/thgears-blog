@@ -1,0 +1,70 @@
+<header class="container header">
+  <a href="/">
+    <svg
+      class="transition-hover-up feather feather-home header__svg"
+      fill="none"
+      height="24"
+      stroke="var(--homeicon-color)"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22">
+      </polyline>
+    </svg>
+  </a>
+
+  <nav class="header__navigation nav">
+    <ul class="nav__list" role="list">
+      <li class="nav__item"><a class="nav__link" href="/">Inicio</a></li>
+      <li class="nav__item"><a class="nav__link" href="/explore">Explorar</a></li>
+      <li class="nav__item"><a class="nav__link" href="/about">Sobre mí</a></li>
+    </ul>
+  </nav>
+</header>
+
+<style>
+  .header {
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .nav__list {
+    display: flex;
+    gap: 20px;
+  }
+
+  .nav__link {
+    font-size: var(--fs-200);
+    color: var(--title-color);
+    position: relative;
+    text-decoration: none !important;
+  }
+
+  .nav__link::after {
+    content: "";
+    background-color: var(--title-color);
+    width: 0;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: 0.2s;
+    z-index: -1;
+    /* transform: scale(0); */
+  }
+
+  .nav__link:hover::after {
+    width: 100%;
+  }
+
+  @media screen and (min-width: 700px) {
+    .nav__link {
+      font-size: var(--fs-400);
+    }
+  }
+</style>

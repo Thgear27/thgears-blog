@@ -1,15 +1,64 @@
 ---
+import "../styles/global.css";
+import "../styles/reset.css";
+
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import PostsList from "../components/PostsList.astro";
+import Footer from "../components/Footer.astro";
+
+const title = "Thgear's Code";
+const mainTitle = "Thgear's Code";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout pageTitle={title}>
+  <Header />
+  <main class="container main">
+    <div class="hero">
+      <h1 class="hero__title">{mainTitle}</h1>
+      <p class="hero__paragraph">Un lugar donde comparto mi viaje en el mundo de la programación</p>
+    </div>
+    <div class="posts">
+      <h2 class="posts__title">Posts Recientes</h2>
+      <PostsList />
+      <a class="post__explore-more" href="/explore"> Explorar más</a>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .hero {
+    padding: 40px;
+  }
+
+  .hero__title {
+    font-size: var(--fs-hero-title);
+    color: var(--title-color);
+    text-align: center;
+  }
+
+  .hero__paragraph {
+    text-align: center;
+  }
+
+  .posts__title {
+    color: var(--title-color);
+    font-weight: var(--fw-regular);
+    font-size: var(--fs-500);
+    padding: 10px 0;
+  }
+
+  .posts {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+  }
+
+  .post__explore-more {
+    padding: 15px 0;
+    width: 100%;
+    text-align: center;
+    border-top: 2px solid rgb(70, 70, 70);
+  }
+</style>

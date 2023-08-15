@@ -1,0 +1,27 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+import "../styles/markdown.css";
+
+const { frontmatter } = Astro.props;
+
+const dateOptions: object = {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+};
+
+const publishDate = new Date(frontmatter.pubDate).toLocaleDateString("es-ES", dateOptions);
+---
+
+<BaseLayout pageTitle={frontmatter.title}>
+  <Header />
+  <main class="container">
+    <h1>{frontmatter.title}</h1>
+    <p>{publishDate}</p>
+    <slot />
+  </main>
+  <Footer />
+</BaseLayout>
