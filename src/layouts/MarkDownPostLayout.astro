@@ -18,24 +18,20 @@ const tags = frontmatter.tags;
 ---
 
 <BaseLayout pageTitle={frontmatter.title}>
-  <Header />
-  <main class="container">
-    <h1>{frontmatter.title}</h1>
-    <p>{publishDate}</p>
-    <ul class="taglist">
-      {
-        tags.map((tag) => (
-          <a class="taglist__link" href="#">
-            <li class="taglist__item" role="list">
-              {tag}
-            </li>
-          </a>
-        ))
-      }
-    </ul>
-    <slot />
-  </main>
-  <Footer />
+  <h1>{frontmatter.title}</h1>
+  <p>{publishDate}</p>
+  <ul class="taglist">
+    {
+      tags.map((tag) => (
+        <a class="taglist__link" href={"/tags/" + tag}>
+          <li class="taglist__item" role="list">
+            {tag}
+          </li>
+        </a>
+      ))
+    }
+  </ul>
+  <slot />
 </BaseLayout>
 
 <style>

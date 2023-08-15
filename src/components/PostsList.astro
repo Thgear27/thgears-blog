@@ -1,12 +1,12 @@
 ---
 import PostItem from "./PostItem.astro";
 
-const allPosts = await Astro.glob("../pages/posts/*.md");
+const { posts } = Astro.props;
 ---
 
 <div class="posts-list">
   {
-    allPosts.map((post) => (
+    posts.map((post) => (
       <PostItem postURL={post.url} postTitle={post.frontmatter.title} postPubDate={post.frontmatter.pubDate} />
     ))
   }

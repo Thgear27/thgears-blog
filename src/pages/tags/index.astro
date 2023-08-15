@@ -1,0 +1,41 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const title = "Thgear's Code";
+
+const allPosts = await Astro.glob("../posts/*.md");
+const uniqueTags = [...new Set(allPosts.map((post) => post.frontmatter.tags).flat())];
+---
+
+<BaseLayout pageTitle={title}>
+  <h1>Tags</h1>
+  <ul class="tagslist" role="list">
+    {
+      uniqueTags.map((tag) => (
+        <a class="tagslist__link" href={"/tags/" + tag}>
+          <li class="tagslist__item">{tag}</li>
+        </a>
+      ))
+    }
+  </ul>
+</BaseLayout>
+
+<style>
+  .tagslist {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 0;
+  }
+
+  .tagslist__item {
+    background-color: #616161;
+    padding: 5px 10px;
+    border-radius: 8px;
+  }
+
+  .tagslist__link {
+    color: rgb(230, 230, 230);
+    text-decoration: none;
+  }
+</style>
