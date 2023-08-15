@@ -1,0 +1,44 @@
+---
+const { postTitle, postURL, postPubDate } = Astro.props;
+
+
+const dateOptions: object = {
+  year: "numeric",
+  month: "numeric",
+  day: "numeric",
+};
+
+const publishDate = new Date(postPubDate).toLocaleDateString("es-ES", dateOptions);
+---
+
+<a class="post__link" href={postURL}>
+  <div class="post">
+    <h1 class="post__title">{postTitle}</h1>
+    <p class="post__date">{publishDate}</p>
+  </div>
+</a>
+
+<style>
+  .post__link {
+    text-decoration: none;
+  }
+
+  .post__title,
+  .post__date {
+    font-weight: var(--fw-regular);
+    font-size: var(--fs-400);
+  }
+
+  .post {
+    border-top: 2px solid rgb(70, 70, 70);
+    padding: 6px 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    transition: 0.1s;
+  }
+
+  .post:hover {
+    transform: translateX(4px);
+  }
+</style>

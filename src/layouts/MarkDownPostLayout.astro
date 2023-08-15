@@ -14,6 +14,7 @@ const dateOptions: object = {
 };
 
 const publishDate = new Date(frontmatter.pubDate).toLocaleDateString("es-ES", dateOptions);
+const tags = frontmatter.tags;
 ---
 
 <BaseLayout pageTitle={frontmatter.title}>
@@ -21,7 +22,48 @@ const publishDate = new Date(frontmatter.pubDate).toLocaleDateString("es-ES", da
   <main class="container">
     <h1>{frontmatter.title}</h1>
     <p>{publishDate}</p>
+    <ul class="taglist">
+      {
+        tags.map((tag) => (
+          <a class="taglist__link" href="#">
+            <li class="taglist__item" role="list">
+              {tag}
+            </li>
+          </a>
+        ))
+      }
+    </ul>
     <slot />
   </main>
   <Footer />
 </BaseLayout>
+
+<style>
+  .taglist {
+    display: flex;
+    list-style: none;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .taglist__item {
+    background-color: #616161;
+    padding: 3px 12px;
+    border-radius: 100px;
+  }
+
+  .taglist__item:hover {
+    opacity: 0.7;
+  }
+
+  .taglist__link {
+    color: rgb(230, 230, 230);
+    text-decoration: none;
+    font-size: var(--fs-300);
+  }
+
+  .taglist__link:hover {
+    color: rgb(230, 230, 230);
+  }
+</style>
