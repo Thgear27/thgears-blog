@@ -20,10 +20,38 @@
   <nav class="header__navigation nav">
     <ul class="nav__list" role="list">
       <li class="nav__item"><a class="nav__link" href="/">Inicio</a></li>
-      <li class="nav__item"><a class="nav__link" href="/explore">Explorar</a></li>
-      <li class="nav__item"><a class="nav__link" href="/about">Sobre mí</a></li>
+      <li class="nav__item"><a class="nav__link" href="/explore/">Explorar</a></li>
+      <li class="nav__item"><a class="nav__link" href="/about/">Sobre mí</a></li>
     </ul>
   </nav>
+  <button data-lightmode-button class="lightmode-button">
+    <!--?xml version="1.0" ?-->
+    <svg
+      class="feather feather-sun"
+      fill="none"
+      height="24"
+      width="24"
+      stroke="var(--homeicon-color)"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+      ><circle cx="12" cy="12" r="5"></circle><line x1="12" x2="12" y1="1" y2="3"></line><line
+        x1="12"
+        x2="12"
+        y1="21"
+        y2="23"></line><line x1="4.22" x2="5.64" y1="4.22" y2="5.64"></line><line
+        x1="18.36"
+        x2="19.78"
+        y1="18.36"
+        y2="19.78"></line><line x1="1" x2="3" y1="12" y2="12"></line><line x1="21" x2="23" y1="12" y2="12"></line><line
+        x1="4.22"
+        x2="5.64"
+        y1="19.78"
+        y2="18.36"></line><line x1="18.36" x2="19.78" y1="5.64" y2="4.22"></line></svg
+    >
+  </button>
 </header>
 
 <style>
@@ -38,8 +66,15 @@
     gap: 20px;
   }
 
+  .lightmode-button {
+    background: none;
+    border: none;
+    outline: transparent;
+    cursor: pointer;
+  }
+
   .nav__link {
-    font-size: var(--fs-200);
+    font-size: var(--fs-300);
     color: var(--title-color);
     position: relative;
     text-decoration: none !important;
@@ -68,3 +103,25 @@
     }
   }
 </style>
+
+<script>
+  function updateTheme() {
+    if (localStorage.getItem("lightmode") == "enabled") {
+      document.body.classList.add("lightMode");
+    } else {
+      document.body.classList.remove("lightMode");
+    }
+  }
+
+  updateTheme();
+
+  let darkmodeButton = document.querySelector("[data-lightmode-button]");
+  darkmodeButton.addEventListener("click", () => {
+    if (localStorage.getItem("lightmode") == "enabled") {
+      localStorage.setItem("lightmode", "disabled");
+    } else {
+      localStorage.setItem("lightmode", "enabled");
+    }
+    updateTheme();
+  });
+</script>
