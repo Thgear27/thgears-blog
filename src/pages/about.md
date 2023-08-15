@@ -1,13 +1,11 @@
 ---
-layout: ../layouts/MarkDownPostLayout.astro
-title: 'Sobre mí'
-pubDate: 2022-07-01
-description: 'This is the first post of my new Astro blog.'
-author: 'Thgear27'
-image:
-    url: 'https://docs.astro.build/assets/full-logo-light.png'
-    alt: 'The full Astro logo.'
-tags: ["astro", "blogging", "learning in public"]
+layout: ../layouts/MarkDownNoTagsLayout.astro
+title: "Sobre mí"
+pubDate: 2023-08-15
+description: "About me"
+author: "Thgear27"
 ---
 
-Sí
+## Título
+
+Vacio por el momento

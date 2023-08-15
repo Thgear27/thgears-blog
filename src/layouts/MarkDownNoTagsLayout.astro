@@ -12,23 +12,11 @@ const dateOptions: object = {
 };
 
 const publishDate = new Date(frontmatter.pubDate).toLocaleDateString("es-ES", dateOptions);
-const tags = frontmatter.tags;
 ---
 
 <BaseLayout pageTitle={frontmatter.title}>
   <h1>{frontmatter.title}</h1>
   <p>{publishDate}</p>
-  <ul class="taglist">
-    {
-      tags.map((tag) => (
-        <a class="taglist__link" href={"/tags/" + tag}>
-          <li class="taglist__item" role="list">
-            {tag}
-          </li>
-        </a>
-      ))
-    }
-  </ul>
   <slot />
 </BaseLayout>
 
