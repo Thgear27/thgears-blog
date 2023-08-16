@@ -5,7 +5,11 @@ import PostsList from "../components/PostsList.astro";
 const title = "Thgear's Code";
 const mainTitle = "Thgear27's Code";
 
-const postsfetched = await Astro.glob('./posts/*.md');
+let postsfetched = await Astro.glob("./posts/*.md");
+
+if (postsfetched.length > 15) {
+  postsfetched = postsfetched.slice(0, 15);
+}
 ---
 
 <BaseLayout pageTitle={title}>
@@ -16,7 +20,7 @@ const postsfetched = await Astro.glob('./posts/*.md');
   <div class="posts">
     <h2 class="posts__title">Posts Recientes</h2>
     <PostsList posts={postsfetched} />
-    <a class="post__explore-more" href="/tags/"> Explorar más</a>
+    <a class="post__explore-more" href="/tags/"><p>Explorar más</p></a>
   </div>
 </BaseLayout>
 
@@ -55,6 +59,15 @@ const postsfetched = await Astro.glob('./posts/*.md');
     text-decoration: none;
     font-size: var(--fs-400);
     color: var(--title-color);
+  }
+
+  .post__explore-more p {
+    transition: transform 0.2s ease;
+    transform-origin: center;
+  }
+
+  .post__explore-more:hover p {
+    transform: translateY(-4px);
   }
 
   .post__explore-more:hover {

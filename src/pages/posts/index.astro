@@ -1,0 +1,20 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PostsList from "../../components/PostsList.astro";
+import "../../styles/markdown.css";
+
+const title = "Thgear's Code";
+
+let postsfetched = await Astro.glob("../posts/*.md");
+---
+
+<BaseLayout pageTitle={title}>
+  <h1>Posts</h1>
+  <PostsList posts={postsfetched} />
+</BaseLayout>
+
+<style>
+  h1 {
+    text-align: center;
+  }
+</style>

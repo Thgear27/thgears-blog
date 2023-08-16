@@ -1,0 +1,24 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/markdown.css";
+
+const title = "404 error";
+---
+
+<BaseLayout pageTitle={title}>
+  <div class="padding">
+    <h1>404 Not Found</h1>
+    <p>La página que estás buscando no existe</p>
+  </div>
+</BaseLayout>
+
+<style>
+  h1,
+  p {
+    text-align: center;
+  }
+
+  .padding {
+    padding: 100px 0;
+  }
+</style>
