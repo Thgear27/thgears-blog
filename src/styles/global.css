@@ -53,8 +53,6 @@ body {
   background-color: var(--bg-color);
   font-family: var(--ff-primary);
   color: var(--text-color);
-
-  transition: 0.1s;
 }
 
 p {
