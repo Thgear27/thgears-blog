@@ -201,10 +201,10 @@ drwxr-xr-x  2 thgear thgear    4096 ago 17 10:41 src
 -rw-r--r--  1 thgear thgear  867934 ago 16 22:36 test3.tga
 -rw-r--r--  1 thgear thgear 1025897 ago 17 10:47 test6.tga
 ```
-- Si ejecutas el programa te dejará un archivo llamado `test3.tga`. Es una imagen de un formato antiguo, si quieres verla puedes usar este página: [http://schmittl.github.io/tgajs/](http://schmittl.github.io/tgajs/)
+- Si ejecutas el programa te dejará un archivo llamado `test3.tga`. Es una imagen de un formato antiguo, si quieres verla puedes usar esta página: [http://schmittl.github.io/tgajs/](http://schmittl.github.io/tgajs/)
 
 ## Resumen
 
-Para compilar un programa en C++ necesitamos sabes que existen diferentes fases, la primera de ellas es la del **preprocesador**, en ella se resuelven todas las directivas que empiecen con un **#**.
+Para compilar un programa en C++ necesitamos saber que existen diferentes fases, la primera de ellas es la del **preprocesador**, en ella se resuelven todas las directivas que empiecen con un **#**.
 Luego tenemos la **compilación**, en el cual podemos agrupar también al ensamblado, cada archivo _.cpp_ es compilado independientemente y nos deja un archivo objeto con extensión _.o_.
 Luego es el **linker** el que se encarga de unir todos los archivos objeto para poder así generar nuestro ejecutable.
