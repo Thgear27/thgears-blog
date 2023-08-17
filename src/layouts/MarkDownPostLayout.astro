@@ -17,7 +17,7 @@ const tags = frontmatter.tags;
 
 <BaseLayout pageTitle={frontmatter.title}>
   <h1>{frontmatter.title}</h1>
-  <p>{publishDate}</p>
+  <p class="date">{publishDate}</p>
   <ul class="taglist">
     {
       tags.map((tag) => (
@@ -39,6 +39,7 @@ const tags = frontmatter.tags;
     gap: 10px;
     margin: 0;
     padding: 0;
+    margin-bottom: 1.5rem;
   }
 
   .taglist__item {
@@ -59,5 +60,9 @@ const tags = frontmatter.tags;
 
   .taglist__link:hover {
     color: rgb(230, 230, 230);
+  }
+
+  .date {
+    margin: 0;
   }
 </style>
