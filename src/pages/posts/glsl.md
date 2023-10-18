@@ -50,7 +50,7 @@ Observar la siguiente tabla.
 | ------------ | --------------------- | ------------------------- |
 | vecn         | n                     | float                     |
 | bvecn        | n                     | boolean                   |
-| ivecn        | n                     | intenge                   |
+| ivecn        | n                     | insteger                  |
 | uvecn        | n                     | unsigned integers         |
 | dvecn        | n                     | double                    |
 
@@ -81,7 +81,7 @@ la variable sea definida como un _in_, con el mismo tipo de dato y el mismo nomb
 
 ## Entrada de vertices en el Vertex Shader
 
-Algo peculiar sucede con el **vertex shader**. Sabemos que por la _Graphics Pipeline_ que los vertices entran a **vertex shader** sin haber pasado por otro shader anteriormente. Por lo tanto, la entrada en este tipo de shader es un poco diferente.
+Algo peculiar sucede con el **vertex shader**. Sabemos por la _Graphics Pipeline_ que los vertices entran a **vertex shader** sin haber pasado por otro shader anteriormente. Por lo tanto, la entrada en este tipo de shader es un poco diferente.
 Utilizamos `layout (location = 0)` para especificar el índice de la entrada de los vertices.
 El número que vaya en location debe ser el mismo que el que se encuentra en el **vertex array object**, cuando lo especificamos con `glVertexAttribPointer`.
 
